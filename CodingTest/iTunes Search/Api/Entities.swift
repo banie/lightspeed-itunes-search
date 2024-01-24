@@ -9,10 +9,10 @@ import Foundation
 
 struct iTunesSearchResults: Codable {
     let resultCount: Int
-    let results: [iTunesResult]
+    let results: [iTunesContent]
 }
 
-struct iTunesResult: Codable {
+struct iTunesContent: Codable {
     let wrapperType: String
     let kind: String?
     let trackName: String?

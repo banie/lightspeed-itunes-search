@@ -24,10 +24,12 @@ class ITunesSearchTableDescriptor: NUOTableDescriptor {
         return containerView
     }()
 
+    private var searchResults: [iTunesContent]
     private let searchApi: iTunesSearchApi
     
     init(searchApi: iTunesSearchApi = iTunesSearchInteractor()) {
         self.searchApi = searchApi
+        searchResults = []
         super.init()
         title = NSLocalizedString("Search iTunes", comment: "Search iTunes")
         shouldReloadTableOnFirstAppearance = true
@@ -39,7 +41,21 @@ class ITunesSearchTableDescriptor: NUOTableDescriptor {
         self.delegate?.setContainerHeaderContentsDisplayed(true, animated: false)
     }
 
+    @MainActor
     override func loadDescription() {
+        if searchResults.isEmpty {
+            loadNoResults()
+        } else {
+            loadResults()
+        }
+    }
+
+    override func register(with tableView: UITableView) {
+        // NO-OP
+    }
+    
+    @MainActor
+    private func loadNoResults() {
         var cellDescriptors = [NUOCellDescriptor]()
         let labelCellDescriptor = NUOLabelCellDescriptor()
         labelCellDescriptor.titleText = "No Results ..."
@@ -47,9 +63,23 @@ class ITunesSearchTableDescriptor: NUOTableDescriptor {
         cellDescriptors.append(labelCellDescriptor)
         setCellDescriptors(cellDescriptors, forSection: 0)
     }
-
-    override func register(with tableView: UITableView) {
-        // NO-OP
+    
+    @MainActor
+    private func loadResults() {
+        let cellDescriptors: [NUOCellDescriptor] = searchResults.map { result in
+            let labelCellDescriptor = NUOLabelCellDescriptor()
+            labelCellDescriptor.titleText = result.trackName ?? result.artistName ?? "No name"
+            labelCellDescriptor.leftMargin = 25
+            return labelCellDescriptor
+        }
+        setCellDescriptors(cellDescriptors, forSection: 0)
+    }
+    
+    @MainActor
+    private func reloadResults(with results: iTunesSearchResults) {
+        searchResults = results.results
+        reloadDescription()
+        reloadSections(IndexSet(integer: 0))
     }
 }
 
@@ -64,8 +94,8 @@ extension ITunesSearchTableDescriptor: UITextFieldDelegate {
         Task.detached { [weak self] in
             guard let self = self else { return }
             switch await self.searchApi.search(for: searchTerm) {
-            case .success(let result):
-                print("XXXX success: \(result)")
+            case .success(let results):
+                await reloadResults(with: results)
             case .failure(let error):
                 print("XXXX failure: \(error)")
             }

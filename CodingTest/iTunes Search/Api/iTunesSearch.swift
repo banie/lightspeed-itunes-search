@@ -33,7 +33,7 @@ class iTunesSearchInteractor: iTunesSearchApi {
             return .failure(.urlInvalid)
         }
         
-        urlComponents.queryItems = [URLQueryItem(name: "term", value: term), URLQueryItem(name: "limit", value: "2")]
+        urlComponents.queryItems = [URLQueryItem(name: "term", value: term)]
         guard let composedUrl = urlComponents.url else {
             return .failure(.urlInvalid)
         }
