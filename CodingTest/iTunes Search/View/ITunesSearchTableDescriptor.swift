@@ -20,6 +20,7 @@ class ITunesSearchTableDescriptor: NUOTableDescriptor {
         let containerView = UIView()
         containerView.addSubview(self.searchTextField)
         self.searchTextField.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
+        self.searchTextField.returnKeyType = .search
         self.searchTextField.delegate = self
         return containerView
     }()
@@ -84,16 +85,34 @@ class ITunesSearchTableDescriptor: NUOTableDescriptor {
 }
 
 extension ITunesSearchTableDescriptor: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let text = textField.text, let textRange = Range(range, in: text) else {
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        guard let text = textField.text, let textRange = Range(range, in: text) else {
+//            return true
+//        }
+//        
+//        let searchTerm = text.replacingCharacters(in: textRange, with: string)
+//        
+//        Task.detached { [weak self] in
+//            guard let self = self else { return }
+//            switch await self.searchApi.search(for: searchTerm) {
+//            case .success(let results):
+//                await reloadResults(with: results)
+//            case .failure(let error):
+//                print("XXXX failure: \(error)")
+//            }
+//        }
+//        
+//        return true
+//    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let text = textField.text else {
             return true
         }
         
-        let searchTerm = text.replacingCharacters(in: textRange, with: string)
-        
         Task.detached { [weak self] in
             guard let self = self else { return }
-            switch await self.searchApi.search(for: searchTerm) {
+            switch await self.searchApi.search(for: text) {
             case .success(let results):
                 await reloadResults(with: results)
             case .failure(let error):
