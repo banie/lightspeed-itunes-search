@@ -10,6 +10,8 @@
 		26397E4BB386F802B80526EE /* Pods_CodingTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A737E2D6F0A417B562213180 /* Pods_CodingTest.framework */; };
 		71C434D82B60B8CF008BE894 /* iTunesSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C434D72B60B8CF008BE894 /* iTunesSearch.swift */; };
 		71C434DA2B60B915008BE894 /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C434D92B60B915008BE894 /* Entities.swift */; };
+		71C434DD2B619D54008BE894 /* NUOItunesContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C434DC2B619D54008BE894 /* NUOItunesContentCell.swift */; };
+		71C434DF2B61A120008BE894 /* NUOItunesContentCellDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C434DE2B61A120008BE894 /* NUOItunesContentCellDescriptor.swift */; };
 		BB0C08BFD7C1C2A99C83D065 /* Pods_CodingTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 575602AB98AD48F553D9CC0A /* Pods_CodingTestTests.framework */; };
 		CB387C32EC71FB16D3B02908 /* Pods_CodingTest_CodingTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6E166B4E2A28CD94AD4320 /* Pods_CodingTest_CodingTestUITests.framework */; };
 		DA5208A32B51C23500AB9580 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5208A22B51C23500AB9580 /* AppDelegate.swift */; };
@@ -56,6 +58,8 @@
 		5EDEDFC037C8066AC2E4E95A /* Pods-CodingTest-CodingTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingTest-CodingTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-CodingTest-CodingTestUITests/Pods-CodingTest-CodingTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		71C434D72B60B8CF008BE894 /* iTunesSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesSearch.swift; sourceTree = "<group>"; };
 		71C434D92B60B915008BE894 /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
+		71C434DC2B619D54008BE894 /* NUOItunesContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NUOItunesContentCell.swift; sourceTree = "<group>"; };
+		71C434DE2B61A120008BE894 /* NUOItunesContentCellDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NUOItunesContentCellDescriptor.swift; sourceTree = "<group>"; };
 		71E47D112ABF3774932C168B /* Pods-CodingTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingTestTests.release.xcconfig"; path = "Target Support Files/Pods-CodingTestTests/Pods-CodingTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		A737E2D6F0A417B562213180 /* Pods_CodingTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodingTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A73C83BEADBC0FBCD783E227 /* Pods-CodingTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingTestTests.debug.xcconfig"; path = "Target Support Files/Pods-CodingTestTests/Pods-CodingTestTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 			children = (
 				DA5208FF2B51E08300AB9580 /* ITunesSearchTableDescriptor.swift */,
 				DA5209012B51E13200AB9580 /* ITunesSearchTableDescriptorViewController.swift */,
+				71C434DC2B619D54008BE894 /* NUOItunesContentCell.swift */,
+				71C434DE2B61A120008BE894 /* NUOItunesContentCellDescriptor.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -533,6 +539,7 @@
 			files = (
 				DA5209022B51E13200AB9580 /* ITunesSearchTableDescriptorViewController.swift in Sources */,
 				DA5208E72B51C32400AB9580 /* NUOCellDescriptor.m in Sources */,
+				71C434DD2B619D54008BE894 /* NUOItunesContentCell.swift in Sources */,
 				DA5208A32B51C23500AB9580 /* AppDelegate.swift in Sources */,
 				71C434D82B60B8CF008BE894 /* iTunesSearch.swift in Sources */,
 				DA5209002B51E08300AB9580 /* ITunesSearchTableDescriptor.swift in Sources */,
@@ -543,6 +550,7 @@
 				DA5208E22B51C2A900AB9580 /* NUOTableDescriptor.m in Sources */,
 				DA5208A52B51C23500AB9580 /* SceneDelegate.swift in Sources */,
 				DA5208EE2B51C77900AB9580 /* UIViewExtensions.swift in Sources */,
+				71C434DF2B61A120008BE894 /* NUOItunesContentCellDescriptor.swift in Sources */,
 				DA5208EC2B51C4CD00AB9580 /* HidableStackView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

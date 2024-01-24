@@ -68,10 +68,10 @@ class ITunesSearchTableDescriptor: NUOTableDescriptor {
     @MainActor
     private func loadResults() {
         let cellDescriptors: [NUOCellDescriptor] = searchResults.map { result in
-            let labelCellDescriptor = NUOLabelCellDescriptor()
-            labelCellDescriptor.titleText = result.trackName ?? result.artistName ?? "No name"
-            labelCellDescriptor.leftMargin = 25
-            return labelCellDescriptor
+            let contentCellDescriptor = NUOItunesContentCellDescriptor()
+            contentCellDescriptor.name = result.trackName ?? "No track name"
+            contentCellDescriptor.artistName = result.artistName ?? "No artist name"
+            return contentCellDescriptor
         }
         setCellDescriptors(cellDescriptors, forSection: 0)
     }
@@ -85,26 +85,6 @@ class ITunesSearchTableDescriptor: NUOTableDescriptor {
 }
 
 extension ITunesSearchTableDescriptor: UITextFieldDelegate {
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        guard let text = textField.text, let textRange = Range(range, in: text) else {
-//            return true
-//        }
-//        
-//        let searchTerm = text.replacingCharacters(in: textRange, with: string)
-//        
-//        Task.detached { [weak self] in
-//            guard let self = self else { return }
-//            switch await self.searchApi.search(for: searchTerm) {
-//            case .success(let results):
-//                await reloadResults(with: results)
-//            case .failure(let error):
-//                print("XXXX failure: \(error)")
-//            }
-//        }
-//        
-//        return true
-//    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let text = textField.text else {
             return true

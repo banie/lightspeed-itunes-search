@@ -17,4 +17,7 @@ struct iTunesContent: Codable {
     let kind: String?
     let trackName: String?
     let artistName: String?
+    let trackViewUrl: String?
+    let artistViewUrl: String?
+    let artworkUrl60: String?
 }

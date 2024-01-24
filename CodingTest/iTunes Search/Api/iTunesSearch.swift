@@ -45,7 +45,7 @@ class iTunesSearchInteractor: iTunesSearchApi {
         } catch {
             return .failure(.unexpected(errorMessage: error.localizedDescription))
         }
-        
+
         let data = sessionResult.0
         let urlResponse = sessionResult.1
         if let httpResponse = urlResponse as? HTTPURLResponse {
