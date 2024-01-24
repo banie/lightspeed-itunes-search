@@ -20,10 +20,14 @@ class ITunesSearchTableDescriptor: NUOTableDescriptor {
         let containerView = UIView()
         containerView.addSubview(self.searchTextField)
         self.searchTextField.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
+        self.searchTextField.delegate = self
         return containerView
     }()
 
-    override init() {
+    private let searchApi: iTunesSearchApi
+    
+    init(searchApi: iTunesSearchApi = iTunesSearchInteractor()) {
+        self.searchApi = searchApi
         super.init()
         title = NSLocalizedString("Search iTunes", comment: "Search iTunes")
         shouldReloadTableOnFirstAppearance = true
@@ -46,5 +50,27 @@ class ITunesSearchTableDescriptor: NUOTableDescriptor {
 
     override func register(with tableView: UITableView) {
         // NO-OP
+    }
+}
+
+extension ITunesSearchTableDescriptor: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text, let textRange = Range(range, in: text) else {
+            return true
+        }
+        
+        let searchTerm = text.replacingCharacters(in: textRange, with: string)
+        
+        Task.detached { [weak self] in
+            guard let self = self else { return }
+            switch await self.searchApi.search(for: searchTerm) {
+            case .success(let result):
+                print("XXXX success: \(result)")
+            case .failure(let error):
+                print("XXXX failure: \(error)")
+            }
+        }
+        
+        return true
     }
 }
