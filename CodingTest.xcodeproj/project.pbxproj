@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		26397E4BB386F802B80526EE /* Pods_CodingTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A737E2D6F0A417B562213180 /* Pods_CodingTest.framework */; };
+		71C434D82B60B8CF008BE894 /* iTunesSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C434D72B60B8CF008BE894 /* iTunesSearch.swift */; };
+		71C434DA2B60B915008BE894 /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C434D92B60B915008BE894 /* Entities.swift */; };
 		BB0C08BFD7C1C2A99C83D065 /* Pods_CodingTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 575602AB98AD48F553D9CC0A /* Pods_CodingTestTests.framework */; };
 		CB387C32EC71FB16D3B02908 /* Pods_CodingTest_CodingTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6E166B4E2A28CD94AD4320 /* Pods_CodingTest_CodingTestUITests.framework */; };
 		DA5208A32B51C23500AB9580 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5208A22B51C23500AB9580 /* AppDelegate.swift */; };
@@ -52,6 +54,8 @@
 		494EB85EDEB82D85B2FCA061 /* Pods-CodingTest-CodingTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingTest-CodingTestUITests.release.xcconfig"; path = "Target Support Files/Pods-CodingTest-CodingTestUITests/Pods-CodingTest-CodingTestUITests.release.xcconfig"; sourceTree = "<group>"; };
 		575602AB98AD48F553D9CC0A /* Pods_CodingTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodingTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EDEDFC037C8066AC2E4E95A /* Pods-CodingTest-CodingTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingTest-CodingTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-CodingTest-CodingTestUITests/Pods-CodingTest-CodingTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		71C434D72B60B8CF008BE894 /* iTunesSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesSearch.swift; sourceTree = "<group>"; };
+		71C434D92B60B915008BE894 /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
 		71E47D112ABF3774932C168B /* Pods-CodingTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingTestTests.release.xcconfig"; path = "Target Support Files/Pods-CodingTestTests/Pods-CodingTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		A737E2D6F0A417B562213180 /* Pods_CodingTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodingTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A73C83BEADBC0FBCD783E227 /* Pods-CodingTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingTestTests.debug.xcconfig"; path = "Target Support Files/Pods-CodingTestTests/Pods-CodingTestTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +143,24 @@
 				71E47D112ABF3774932C168B /* Pods-CodingTestTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		71C434D62B60B856008BE894 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				71C434D92B60B915008BE894 /* Entities.swift */,
+				71C434D72B60B8CF008BE894 /* iTunesSearch.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		71C434DB2B60B94A008BE894 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA5208FF2B51E08300AB9580 /* ITunesSearchTableDescriptor.swift */,
+				DA5209012B51E13200AB9580 /* ITunesSearchTableDescriptorViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DA5208962B51C23500AB9580 = {
@@ -264,8 +286,8 @@
 		DA5209032B51E17800AB9580 /* iTunes Search */ = {
 			isa = PBXGroup;
 			children = (
-				DA5208FF2B51E08300AB9580 /* ITunesSearchTableDescriptor.swift */,
-				DA5209012B51E13200AB9580 /* ITunesSearchTableDescriptorViewController.swift */,
+				71C434D62B60B856008BE894 /* Api */,
+				71C434DB2B60B94A008BE894 /* View */,
 			);
 			path = "iTunes Search";
 			sourceTree = "<group>";
@@ -512,7 +534,9 @@
 				DA5209022B51E13200AB9580 /* ITunesSearchTableDescriptorViewController.swift in Sources */,
 				DA5208E72B51C32400AB9580 /* NUOCellDescriptor.m in Sources */,
 				DA5208A32B51C23500AB9580 /* AppDelegate.swift in Sources */,
+				71C434D82B60B8CF008BE894 /* iTunesSearch.swift in Sources */,
 				DA5209002B51E08300AB9580 /* ITunesSearchTableDescriptor.swift in Sources */,
+				71C434DA2B60B915008BE894 /* Entities.swift in Sources */,
 				DA5208F52B51CC4C00AB9580 /* NUOLabelCellDescriptor.m in Sources */,
 				DA5208E32B51C2A900AB9580 /* NUOTableDescriptorViewController.m in Sources */,
 				DA5208FC2B51CCA800AB9580 /* NUOLabelCell.m in Sources */,
